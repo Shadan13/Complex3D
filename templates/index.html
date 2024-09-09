@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Complex3D</title>
+    <meta name="google-site-verification" content="WPlTuG2lk8KKsEgwWyYBHYRktKyU8AR4VR1shYIQrwE" />
+    <link rel="stylesheet" href="../static/style.css">
+    <link rel="shortcut icon" href="../static/favicon.ico" type="image/x-icon">
+  </head>
+  <body>
+    <h1>Complex3D Graphing App</h1>
+    <div class="container">
+      <div class="form-column">
+        <form action="" method="post">
+          <label for="n">Input a value for n in n^x (e.g. (-1.135)^x):</label>
+          <input type="text" id="n" name="n" required placeholder='try -1.135'>
+          <br><br>
+          <label for="resolution">Select resolution:</label>
+          <br>
+          <input type="radio" id="high" name="resolution" value="high">
+          <label for="high">High</label>
+          <br>
+          <input type="radio" id="med" name="resolution" value="med" checked>
+          <label for="med">Medium (recommended)</label>
+          <br>
+          <input type="radio" id="low" name="resolution" value="low">
+          <label for="low">Low</label>
+          <br><br>
+          <button type="submit">Plot</button>
+        </form>
+      </div>
+      <div class="plot-column">
+        {% if plot_generated %}
+          <div class="plotly-graph">{{ graph_html | safe }}</div>
+        {% endif %}
+      </div>
+    </div>
+  </body>
+</html>
